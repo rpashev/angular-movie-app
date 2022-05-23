@@ -1,0 +1,14 @@
+<header class="header">
+  <div class="logo-container"></div>
+  <nav class="nav__links">
+    <a
+      *ngFor="let link of links"
+      [routerLink]="link.link"
+      class="link"
+      routerLinkActive="active"
+      >{{ link.title }}
+      <app-badge *ngIf="link.title === 'Watchlist'"></app-badge>
+      <!-- user-badge -->
+    </a>
+  </nav>
+</header>

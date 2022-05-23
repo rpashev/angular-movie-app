@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;900&display=swap");
+:root {
+  --color-primary: #45e237;
+  --color-primary-light: #7df872;
+  --color-primary-darker: #66a80f;
+  --color-primary-darkest: #385502;
+  --gray-light: #f0f0f0;
+  --gray-darker: #ced3d8;
+  --gray-darkest: #101010;
+  --danger: #c21423;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato", sans-sarif;
+  background: radial-gradient(
+    circle,
+    rgba(22, 66, 17, 1) 13%,
+    rgba(0, 0, 0, 0.8802871490393032) 100%
+  );
+  line-height: 1.4;
+  color: var(--gray-darker);
+}
+
+app-root {
+  position: relative;
+  min-height: 100vh;
+  display: block;
+
+  main {
+    padding: 6rem 0 8rem 0;
+    min-width: 320px;
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+}
+
+h2 {
+  opacity: 0.8;
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--gray-light);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--gray-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
