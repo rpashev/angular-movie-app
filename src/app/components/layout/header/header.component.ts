@@ -7,7 +7,7 @@ import getNavigation, { NavLink } from './links.util';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn = true;
+  isLoggedIn = false;
   links: NavLink[];
 
   constructor() {}

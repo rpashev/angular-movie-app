@@ -40,6 +40,10 @@ app-root {
   }
 }
 
+router-outlet {
+  display: none;
+}
+
 h2 {
   opacity: 0.8;
   font-size: 1.8rem;
