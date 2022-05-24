@@ -18,6 +18,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { IntroComponent } from './components/home-page/intro/intro.component';
 import { FeaturesComponent } from './components/home-page/features/features.component';
 import { FeedbackComponent } from './components/home-page/feedback/feedback.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FeedbackComponent } from './components/home-page/feedback/feedback.comp
     FeedbackComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
