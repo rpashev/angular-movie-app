@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;900&display=swap");
 :root {
-  --color-primary: #45e237;
-  --color-primary-light: #7df872;
-  --color-primary-darker: #66a80f;
-  --color-primary-darkest: #385502;
-  --gray-light: #f0f0f0;
-  --gray-darker: #ced3d8;
-  --gray-darkest: #101010;
-  --danger: #c21423;
+  --color-primary: rgb(69, 226, 55);
+  --color-primary-light: rgb(125, 248, 114);
+  --color-primary-darker: rgb(102, 168, 15);
+  --color-primary-darkest: rgb(56, 85, 2);
+  --gray-light: rgb(240, 240, 240);
+  --gray-darker: rgb(206, 211, 216);
+  --gray-darkest: rgb(16, 16, 16);
+  --danger: rgb(194, 20, 35);
 }
 
 * {

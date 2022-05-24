@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { IntroComponent } from './components/home-page/intro/intro.component';
+import { FeaturesComponent } from './components/home-page/features/features.component';
+import { FeedbackComponent } from './components/home-page/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,14 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     RegisterComponent,
     ProfileComponent,
     DetailsComponent,
-    FooterComponent
+    FooterComponent,
+    IntroComponent,
+    FeaturesComponent,
+    FeedbackComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
