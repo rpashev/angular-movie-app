@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { IntroComponent } from './components/home-page/intro/intro.component';
 import { FeaturesComponent } from './components/home-page/features/features.component';
 import { FeedbackComponent } from './components/home-page/feedback/feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './components/UI/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     IntroComponent,
     FeaturesComponent,
     FeedbackComponent,
+    SpinnerComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

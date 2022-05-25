@@ -39,6 +39,10 @@
           outline: none;
           background-color: var(--gray-darker);
         }
+
+        &.ng-invalid.ng-touched {
+          border: 3px solid var(--color-danger);
+        }
       }
 
       .input-error,

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { GuestGuard } from './guards/guest.guard';
 import { DatabaseComponent } from './pages/database/database.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { ExploreComponent } from './pages/explore/explore.component';
@@ -11,15 +13,15 @@ import { SeenlistComponent } from './pages/seenlist/seenlist.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'details/:movieId', component: DetailsComponent },
-  { path: 'watchlist', component: WatchlistComponent },
-  { path: 'seenlist', component: SeenlistComponent },
-  { path: 'database', component: DatabaseComponent },
-  { path: 'explore', component: ExploreComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '', component: HomeComponent, canActivate: [GuestGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
+  { path: 'details/:movieId', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
+  { path: 'seenlist', component: SeenlistComponent, canActivate: [AuthGuard] },
+  { path: 'database', component: DatabaseComponent, canActivate: [AuthGuard] },
+  { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' },
 ];
 

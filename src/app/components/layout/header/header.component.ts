@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { StoreService } from 'src/app/services/store.service';
 import getNavigation, { NavLink } from './links.util';
 
 @Component({
@@ -6,13 +8,21 @@ import getNavigation, { NavLink } from './links.util';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   links: NavLink[];
+  subscription: Subscription;
 
-  constructor() {}
+  constructor(private store: StoreService) {}
 
   ngOnInit(): void {
-    this.links = getNavigation(this.isLoggedIn);
+    this.subscription = this.store.user$.subscribe((user) => {
+      this.isLoggedIn = user ? true : false;
+      this.links = getNavigation(this.isLoggedIn);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

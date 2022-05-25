@@ -20,7 +20,9 @@
       Password must be at least 6 symbols!
     </p>
   </div>
+  <app-spinner *ngIf="loading"></app-spinner>
   <div class="form-control button-div">
-    <button>Login</button>
+    <button *ngIf="!loading">Login</button>
   </div>
+  <p *ngIf="!loading && error" class="http-error">{{ error }}</p>
 </form>

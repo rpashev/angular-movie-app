@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loading = false;
+  error: null | string = null;
 
-  constructor() {}
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -19,6 +22,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) console.log(this.loginForm.value);
+    this.loading = true;
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    const data = { email, password };
+    if (this.loginForm.valid) {
+      this.api.login(data).subscribe(
+        () => {
+          this.loading = false;
+        },
+        (error) => {
+          this.error = error.error?.message || 'Something went wrong!';
+          this.loading = false;
+        }
+      );
+    }
   }
 }
