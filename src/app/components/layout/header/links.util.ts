@@ -26,10 +26,6 @@ const getNavigation = (isLoggedIn: boolean) => {
       title: 'Profile',
       link: '/profile',
     },
-    {
-      title: 'Logout',
-      link: '/logout',
-    },
   ];
 
   const guestLinks = [

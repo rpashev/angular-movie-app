@@ -20,6 +20,9 @@
     gap: 2rem;
 
     .link {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
       font-size: 1rem;
       color: var(--gray-light);
       text-decoration: none;

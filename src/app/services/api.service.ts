@@ -21,4 +21,18 @@ export class ApiService {
       })
     );
   }
+
+  signup(data: {
+    username: string;
+    email: string;
+    password: string;
+    repeatPassword: string;
+  }) {
+    const url = this.baseURL + 'auth/register';
+    return this.http.post<UserData>(url, data).pipe(
+      tap((response) => {
+        this.store.setUser(response);
+      })
+    );
+  }
 }

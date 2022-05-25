@@ -7,6 +7,8 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +16,11 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  loading = false;
+  error: string | null = null;
   registerForm: FormGroup;
 
-  constructor() {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -34,7 +38,22 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      this.loading = true;
+      this.error = null;
+      const { username, email } = this.registerForm.value;
+      const { password, repeatPassword } = this.registerForm.value.passwords;
+      const data = { username, email, password, repeatPassword };
+
+      this.api.signup(data).subscribe(
+        () => {
+          this.loading = false;
+          this.router.navigate(['watchlist']);
+        },
+        (error) => {
+          this.error = error.error?.message || 'Something went wrong!';
+          this.loading = false;
+        }
+      );
     }
   }
 

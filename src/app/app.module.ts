@@ -21,6 +21,7 @@ import { FeaturesComponent } from './components/home-page/features/features.comp
 import { FeedbackComponent } from './components/home-page/feedback/feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/UI/spinner/spinner.component';
+import { UserBadgeComponent } from './components/UI/user-badge/user-badge.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SpinnerComponent } from './components/UI/spinner/spinner.component';
     FeaturesComponent,
     FeedbackComponent,
     SpinnerComponent,
+    UserBadgeComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
