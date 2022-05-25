@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { tap, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserData } from '../models/user.model';
 import { StoreService } from './store.service';
@@ -32,6 +32,35 @@ export class ApiService {
     return this.http.post<UserData>(url, data).pipe(
       tap((response) => {
         this.store.setUser(response);
+      })
+    );
+  }
+
+  getPublicMovies() {
+    const url = this.baseURL + 'public-library';
+    return this.http.get<[]>(url).pipe(
+      map((movies) => {
+        return movies.map((movie: any) => {
+          return { poster: movie.poster, title: movie.title, id: movie.IMDBId };
+        });
+      })
+    );
+  }
+
+  getSeenlist() {
+    const url = this.baseURL + 'user/seenlist';
+    return this.http.get<[]>(url).pipe(
+      map((movies) => {
+        return movies.map((movie: any) => {
+          return {
+            id: movie.IMDBId,
+            poster: movie.poster,
+            year: movie.year,
+            title: movie.title,
+            genre: movie.genre,
+            runtime: movie.runtime,
+          };
+        });
       })
     );
   }

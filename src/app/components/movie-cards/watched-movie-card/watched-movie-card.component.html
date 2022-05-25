@@ -1,0 +1,17 @@
+<li
+  class="card"
+  tabindex="0"
+  role="link"
+  (click)="navigate($event)"
+  (keypress)="navigate($event)"
+>
+  <img [src]="imgLink" alt="" />
+  <div class="info">
+    <h4>{{ title }}</h4>
+    <div>
+      <span>{{ year }} | </span>
+      <span>{{ runtime }} | </span>
+      <span>{{ genre }}</span>
+    </div>
+  </div>
+</li>

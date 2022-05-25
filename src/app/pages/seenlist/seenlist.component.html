@@ -1,1 +1,17 @@
-<p>seenlist works!</p>
+<div class="seenlist-page">
+  <h1 class="title">Movies you've watched</h1>
+  <app-search-input></app-search-input>
+  <app-spinner *ngIf="loading"></app-spinner>
+  <p *ngIf="error">{{ error }}</p>
+  <ul *ngIf="movies.length > 0" class="list">
+    <app-watched-movie-card
+      *ngFor="let movie of movies"
+      [id]="movie.id"
+      [title]="movie.title"
+      [runtime]="movie.runtime"
+      [year]="movie.year"
+      [genre]="movie.genre"
+      [imgLink]="movie.poster"
+    ></app-watched-movie-card>
+  </ul>
+</div>
