@@ -21,15 +21,15 @@ export class ExploreComponent implements OnInit {
   loadMovies() {
     this.loading = true;
     this.error = null;
-    this.api.getPublicMovies().subscribe(
-      (data) => {
-        this.movies = data;
+    this.api.getPublicMovies().subscribe({
+      next: (movies) => {
+        this.movies = movies;
         this.loading = false;
       },
-      (error) => {
+      error: (error) => {
         this.error = error.error?.message || 'Could not load movies!';
         this.loading = false;
-      }
-    );
+      },
+    });
   }
 }

@@ -21,15 +21,15 @@ export class SeenlistComponent implements OnInit {
   loadMovies() {
     this.loading = true;
     this.error = null;
-    this.api.getSeenlist().subscribe(
-      (movies) => {
+    this.api.getSeenlist().subscribe({
+      next: (movies) => {
         this.movies = movies;
         this.loading = false;
       },
-      (error) => {
+      error: (error) => {
         this.error = error.error?.message || 'Could not load watched movies!';
         this.loading = false;
-      }
-    );
+      },
+    });
   }
 }

@@ -2,6 +2,7 @@
   padding-top: 3rem;
 }
 .list {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, 16rem);
   grid-auto-rows: 1fr;
@@ -11,4 +12,9 @@
   color: var(--gray-light);
   width: 85%;
   margin: 4.5rem auto 0 auto;
+}
+
+.error {
+  text-align: center;
+  color: red;
 }

@@ -1,1 +1,60 @@
-<p>details works!</p>
+<app-spinner *ngIf="loading"></app-spinner>
+<p class="error" *ngIf="error">{{ error }}</p>
+<div class="details" *ngIf="!loading && movie">
+  <div class="leftside">
+    <img [src]="movie.poster" alt="" />
+    <p>
+      <span class="subtitle">Genre: </span>
+      {{ movie.genre }}
+    </p>
+    <p>
+      <span class="subtitle">Runtime: </span>
+      {{ movie.runtime }}
+    </p>
+    <p>
+      <span class="subtitle">Year: </span>
+      {{ movie.year }}
+    </p>
+  </div>
+  <div class="rightside">
+    <h1>{{ movie.title }}</h1>
+    <div class="ratings">
+      <div class="rating imdb-container">
+        <a [href]="movie.imdbLink" target="_blank"
+          ><img
+            class="img"
+            src="../../../assets/imdb2.png"
+            title="View on IMDB"
+            alt="clickable IMDB icon"
+        /></a>
+        <p class="imdb">{{ movie.ratings.imdb }}</p>
+      </div>
+      <p *ngIf="movie.ratings.rotten">Rotten Tomatoes: {{ movie.ratings.rotten }}</p>
+    </div>
+    <p class="plot">{{ movie.plot }}</p>
+    <p>
+      <span class="subtitle">Director: </span>
+      {{ movie.director }}
+    </p>
+    <p>
+      <span class="subtitle">Writer: </span>
+      {{ movie.writer }}
+    </p>
+    <p>
+      <span class="subtitle">Stars: </span>
+      {{ movie.actors }}
+    </p>
+    <p>
+      <span class="subtitle">Boxoffice: </span>
+      {{ movie.boxOffice }}
+    </p>
+    <p>
+      <span class="subtitle">Country: </span>
+      {{ movie.country }}
+    </p>
+    <div class="buttons">
+      <button type="button">Add to watchlist</button>
+      <button type="button">Add to watched</button>
+    </div>
+  </div>
+</div>

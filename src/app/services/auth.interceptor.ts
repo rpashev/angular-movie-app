@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const token = this.store.user$.value?.token;
-    if (token) {
+    if (token && !request.url.includes('omdbapi')) {
       const authRequest = request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`),
       });

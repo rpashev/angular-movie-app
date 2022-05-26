@@ -64,4 +64,23 @@ export class ApiService {
       })
     );
   }
+  getWatchlist() {
+    const url = this.baseURL + 'user/watchlist';
+    return this.http.get<[]>(url).pipe(
+      map((movies) => {
+        return movies.map((movie: any) => {
+          return {
+            id: movie.IMDBId,
+            poster: movie.poster,
+            year: movie.year,
+            title: movie.title,
+            genre: movie.genre,
+            runtime: movie.runtime,
+            actors: movie.actors,
+            plot: movie.plot,
+          };
+        });
+      })
+    );
+  }
 }

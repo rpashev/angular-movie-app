@@ -2,7 +2,7 @@
   <h1 class="title">Movies you've watched</h1>
   <app-search-input></app-search-input>
   <app-spinner *ngIf="loading"></app-spinner>
-  <p *ngIf="error">{{ error }}</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
   <ul *ngIf="movies.length > 0" class="list">
     <app-watched-movie-card
       *ngFor="let movie of movies"

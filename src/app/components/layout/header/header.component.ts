@@ -11,6 +11,7 @@ import getNavigation, { NavLink } from './links.util';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
+  watchlistAmount: number | undefined;
   imageUrl: string | undefined;
   links: NavLink[];
   subscription: Subscription;
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isLoggedIn = user ? true : false;
       this.links = getNavigation(this.isLoggedIn);
       this.imageUrl = this.store?.user$?.value?.image;
+      this.watchlistAmount = this.store?.user$?.value?.watchlist.length;
     });
   }
 

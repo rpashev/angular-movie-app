@@ -1,1 +1,19 @@
-<p>watchlist works!</p>
+<div class="watchlist-page">
+  <h1 class="title">Your watchlist</h1>
+  <app-search-input></app-search-input>
+  <app-spinner *ngIf="loading"></app-spinner>
+  <p *ngIf="error" class="error">{{ error }}</p>
+  <ul *ngIf="movies.length > 0" class="list">
+    <app-watchlist-movie-card
+      *ngFor="let movie of movies"
+      [id]="movie.id"
+      [title]="movie.title"
+      [runtime]="movie.runtime"
+      [year]="movie.year"
+      [genre]="movie.genre"
+      [imgLink]="movie.poster"
+      [actors]="movie.actors"
+      [plot]="movie.plot"
+    ></app-watchlist-movie-card>
+  </ul>
+</div>

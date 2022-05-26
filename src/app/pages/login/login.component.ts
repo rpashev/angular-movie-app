@@ -30,16 +30,16 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       const data = { email, password };
 
-      this.api.login(data).subscribe(
-        () => {
+      this.api.login(data).subscribe({
+        next: () => {
           this.loading = false;
           this.router.navigate(['watchlist']);
         },
-        (error) => {
+        error: (error) => {
           this.error = error.error?.message || 'Something went wrong!';
           this.loading = false;
-        }
-      );
+        },
+      });
     }
   }
 }

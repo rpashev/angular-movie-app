@@ -1,11 +1,8 @@
 .seenlist-page {
   padding-top: 3rem;
 
-  .title {
-    margin-bottom: 3.5rem;
-  }
-
   .list {
+    list-style: none;
     display: grid;
     grid-auto-rows: 1fr;
     justify-items: center;
@@ -15,6 +12,11 @@
     margin: 4.5rem auto 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 22rem));
     gap: 2rem;
+  }
+
+  .error {
+    text-align: center;
+    color: red;
   }
 }
 

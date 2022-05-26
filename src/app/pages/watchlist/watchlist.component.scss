@@ -1,0 +1,21 @@
+.watchlist-page {
+  padding-top: 3rem;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 37rem));
+  grid-auto-rows: 1fr;
+  justify-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  color: var(--gray-light);
+  margin: 4.5rem auto 0 auto;
+  width: 95%;
+}
+
+.error {
+  text-align: center;
+  color: red;
+}

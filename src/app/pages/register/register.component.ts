@@ -44,16 +44,16 @@ export class RegisterComponent implements OnInit {
       const { password, repeatPassword } = this.registerForm.value.passwords;
       const data = { username, email, password, repeatPassword };
 
-      this.api.signup(data).subscribe(
-        () => {
+      this.api.signup(data).subscribe({
+        next: () => {
           this.loading = false;
           this.router.navigate(['watchlist']);
         },
-        (error) => {
+        error: (error) => {
           this.error = error.error?.message || 'Something went wrong!';
           this.loading = false;
-        }
-      );
+        },
+      });
     }
   }
 
