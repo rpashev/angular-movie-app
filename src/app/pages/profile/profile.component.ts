@@ -50,7 +50,10 @@ export class ProfileComponent implements OnInit {
     this.loading = true;
 
     this.api.updateAvatar(formData).subscribe({
-      next: () => {
+      next: (image: any) => {
+        if (image.image) {
+          this.store.updateImage(image.image);
+        }
         this.loading = false;
       },
       error: () => {

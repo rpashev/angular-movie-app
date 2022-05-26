@@ -36,32 +36,11 @@ export class ApiService {
     );
   }
 
-  // updateAvatar(formData: FormData) {
-  //   const url = this.baseURL + 'user-profile';
-  //   return this.http.post(environment.cloudinaryURL, formData).pipe(
-  //     tap(
-  //       (response: any) => {
-  //         return this.http.post(url, { image: response.url }).subscribe((image: any) => {
-  //           if (image.image) {
-  //             this.store.updateImage(image.image);
-  //           }
-  //         });
-  //       },
-  //       catchError(() => {
-  //         throw 'Could not upload image';
-  //       })
-  //     )
-  //   );
-  // }
   updateAvatar(formData: FormData) {
     const url = this.baseURL + 'user-profile';
     return this.http.post(environment.cloudinaryURL, formData).pipe(
-      tap((response: any) => {
-        return this.http.post(url, { image: response.url }).subscribe((image: any) => {
-          if (image.image) {
-            this.store.updateImage(image.image);
-          }
-        });
+      switchMap((response: any) => {
+        return this.http.post(url, { image: response.url });
       })
     );
   }
