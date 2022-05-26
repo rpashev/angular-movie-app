@@ -23,6 +23,11 @@ export class StoreService {
     localStorage.setItem('user', JSON.stringify(this.user$.value));
   }
 
+  updateImage(image: string) {
+    const data = { ...this.user$.value, image: image };
+    this.setUser(data);
+  }
+
   autoLogin() {
     const user = localStorage.getItem('user');
     if (user) {

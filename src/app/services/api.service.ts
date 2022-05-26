@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, map, Observable } from 'rxjs';
+import { tap, map, Observable, switchMap, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserData } from '../models/user.model';
 import { StoreService } from './store.service';
@@ -32,6 +32,36 @@ export class ApiService {
     return this.http.post<UserData>(url, data).pipe(
       tap((response) => {
         this.store.setUser(response);
+      })
+    );
+  }
+
+  // updateAvatar(formData: FormData) {
+  //   const url = this.baseURL + 'user-profile';
+  //   return this.http.post(environment.cloudinaryURL, formData).pipe(
+  //     tap(
+  //       (response: any) => {
+  //         return this.http.post(url, { image: response.url }).subscribe((image: any) => {
+  //           if (image.image) {
+  //             this.store.updateImage(image.image);
+  //           }
+  //         });
+  //       },
+  //       catchError(() => {
+  //         throw 'Could not upload image';
+  //       })
+  //     )
+  //   );
+  // }
+  updateAvatar(formData: FormData) {
+    const url = this.baseURL + 'user-profile';
+    return this.http.post(environment.cloudinaryURL, formData).pipe(
+      tap((response: any) => {
+        return this.http.post(url, { image: response.url }).subscribe((image: any) => {
+          if (image.image) {
+            this.store.updateImage(image.image);
+          }
+        });
       })
     );
   }

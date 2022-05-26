@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isLoggedIn = user ? true : false;
       this.links = getNavigation(this.isLoggedIn);
       this.imageUrl = this.store?.user$?.value?.image;
-      this.watchlistAmount = this.store?.user$?.value?.watchlist.length;
+      this.watchlistAmount = this.store?.user$?.value?.watchlist?.length;
     });
   }
 

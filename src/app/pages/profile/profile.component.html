@@ -1,1 +1,35 @@
-<p>profile works!</p>
+<div class="profile-page">
+  <h1>User Profile</h1>
+  <div class="content">
+    <div class="user-image">
+      <div class="avatar">
+        <img [src]="preview || image" alt="avatar" />
+      </div>
+      <div class="controls">
+        <label for="file-upload" class="customlabel">
+          <span class="field">Upload avatar...</span>
+          <span class="filebtn">Browse</span>
+        </label>
+        <input
+          type="file"
+          (change)="imageChangeHandler($event)"
+          class="fileinput"
+          id="file-upload"
+        />
+        <button (click)="uploadAvatar()">Save changes</button>
+      </div>
+      <p *ngIf="error" class="error">{{ error }}</p>
+      <p *ngIf="loading">Saving...</p>
+    </div>
+    <div class="info">
+      <h2>Username: {{ username }}</h2>
+      <p>Your email: {{ email }}</p>
+      <p>
+        Movies in watchlist: <span>{{ watchlist }}</span>
+      </p>
+      <p>
+        Movies marked as watched: <span>{{ seenlist }}</span>
+      </p>
+    </div>
+  </div>
+</div>
