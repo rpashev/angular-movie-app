@@ -13,15 +13,38 @@ export class OmdbService {
 
   getMovies(query: string): Observable<any> {
     const url = `${this.baseUrl}&s=${query}`;
-    return this.http.get<[]>(url);
+    return this.http.get<any>(url).pipe(
+      map((response) => {
+        if (response.Error) {
+          throw response.Error;
+        }
+        return response.Search.map((movie: any) => {
+          let poster = movie.Poster;
+          if (poster === 'N/A') {
+            poster = '../../assets/no-poster-available.jpg';
+          }
+
+          return {
+            poster,
+            title: movie.Title,
+            id: movie.imdbID,
+          };
+        });
+      })
+    );
   }
 
   getMovie(id: string): Observable<any> {
     const url = `${this.baseUrl}&i=${id}`;
     return this.http.get(url).pipe(
       map((movie: any) => {
+        let poster = movie.Poster;
+        if (poster === 'N/A') {
+          poster = '../../assets/no-poster-available.jpg';
+        }
+
         return {
-          poster: movie.Poster,
+          poster,
           year: movie.Year,
           title: movie.Title,
           genre: movie.Genre,
@@ -30,7 +53,10 @@ export class OmdbService {
           plot: movie.Plot,
           boxOffice: movie.BoxOffice,
           director: movie.Director,
-          ratings: { imdb: movie.Ratings[0].Value, rotten: movie.Ratings[1].Value },
+          ratings: {
+            imdb: movie.Ratings[0]?.Value || '',
+            rotten: movie.Ratings[1]?.Value || '',
+          },
           country: movie.Country,
           writer: movie.Writer,
           imdbLink: `https://www.imdb.com/title/${movie.imdbID}`,

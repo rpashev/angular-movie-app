@@ -27,6 +27,7 @@ import { SearchInputComponent } from './components/UI/search-input/search-input.
 import { BaseMovieCardComponent } from './components/movie-cards/base-movie-card/base-movie-card.component';
 import { WatchlistMovieCardComponent } from './components/movie-cards/watchlist-movie-card/watchlist-movie-card.component';
 import { WatchedMovieCardComponent } from './components/movie-cards/watched-movie-card/watched-movie-card.component';
+import { OmdbComponent } from './components/database-page/omdb/omdb.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { WatchedMovieCardComponent } from './components/movie-cards/watched-movi
     BaseMovieCardComponent,
     WatchlistMovieCardComponent,
     WatchedMovieCardComponent,
+    OmdbComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

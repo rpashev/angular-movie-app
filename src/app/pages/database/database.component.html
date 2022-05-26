@@ -1,1 +1,23 @@
-<p>database works!</p>
+<div class="database-page">
+  <h1>Database</h1>
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search movie database..."
+      (input)="saveQuery($event)"
+    />
+  </div>
+
+  <ul class="list" *ngIf="movies">
+    <app-base-movie-card
+      *ngFor="let movie of movies"
+      [imgLink]="movie.poster"
+      [title]="movie.title"
+      [id]="movie.id"
+    ></app-base-movie-card>
+  </ul>
+
+  <app-spinner *ngIf="loading"></app-spinner>
+  <p class="error" *ngIf="error">{{ error }}</p>
+  <app-omdb *ngIf="!loading && !error && !movies"></app-omdb>
+</div>
