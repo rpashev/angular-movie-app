@@ -11,6 +11,7 @@ export class WatchlistComponent implements OnInit {
   movies: WatchlistMovie[] = [];
   loading = false;
   error: string | null = null;
+  query: string = '';
 
   constructor(private api: ApiService) {}
 
@@ -31,5 +32,9 @@ export class WatchlistComponent implements OnInit {
         this.loading = false;
       },
     });
+  }
+
+  saveQuery(str: string) {
+    this.query = str;
   }
 }

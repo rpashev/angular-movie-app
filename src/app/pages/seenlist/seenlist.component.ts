@@ -11,6 +11,7 @@ export class SeenlistComponent implements OnInit {
   movies: WatchedMovie[] = [];
   loading = false;
   error: string | null = null;
+  query: string = '';
 
   constructor(private api: ApiService) {}
 
@@ -31,5 +32,9 @@ export class SeenlistComponent implements OnInit {
         this.loading = false;
       },
     });
+  }
+
+  saveQuery(str: string) {
+    this.query = str;
   }
 }

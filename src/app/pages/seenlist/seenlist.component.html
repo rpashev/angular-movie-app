@@ -1,11 +1,11 @@
 <div class="seenlist-page">
   <h1 class="title">Movies you've watched</h1>
-  <app-search-input></app-search-input>
+  <app-search-input (onchange)="saveQuery($event)"></app-search-input>
   <app-spinner *ngIf="loading"></app-spinner>
   <p *ngIf="error" class="error">{{ error }}</p>
   <ul *ngIf="movies.length > 0" class="list">
     <app-watched-movie-card
-      *ngFor="let movie of movies"
+      *ngFor="let movie of movies | filter: query"
       [id]="movie.id"
       [title]="movie.title"
       [runtime]="movie.runtime"

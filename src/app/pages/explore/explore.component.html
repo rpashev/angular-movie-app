@@ -1,11 +1,11 @@
 <div class="explore-page">
   <h1 class="title">What our users are watching...</h1>
-  <app-search-input></app-search-input>
+  <app-search-input (onchange)="saveQuery($event)"></app-search-input>
   <app-spinner *ngIf="loading"></app-spinner>
   <p *ngIf="error" class="error">{{ error }}</p>
   <ul class="list" *ngIf="movies.length > 0">
     <app-base-movie-card
-      *ngFor="let movie of movies"
+      *ngFor="let movie of movies | filter: query"
       [imgLink]="movie.poster"
       [title]="movie.title"
       [id]="movie.id"

@@ -28,6 +28,7 @@ import { BaseMovieCardComponent } from './components/movie-cards/base-movie-card
 import { WatchlistMovieCardComponent } from './components/movie-cards/watchlist-movie-card/watchlist-movie-card.component';
 import { WatchedMovieCardComponent } from './components/movie-cards/watched-movie-card/watched-movie-card.component';
 import { OmdbComponent } from './components/database-page/omdb/omdb.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { OmdbComponent } from './components/database-page/omdb/omdb.component';
     WatchlistMovieCardComponent,
     WatchedMovieCardComponent,
     OmdbComponent,
+    FilterPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
