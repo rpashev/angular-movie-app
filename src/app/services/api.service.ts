@@ -50,7 +50,12 @@ export class ApiService {
     return this.http.get<[]>(url).pipe(
       map((movies) => {
         return movies.map((movie: any) => {
-          return { poster: movie.poster, title: movie.title, id: movie.IMDBId };
+          return {
+            poster: movie.poster,
+            title: movie.title,
+            id: movie.IMDBId,
+            checker: this.store.listChecker(movie.IMDBId),
+          };
         });
       })
     );
@@ -68,6 +73,7 @@ export class ApiService {
             title: movie.title,
             genre: movie.genre,
             runtime: movie.runtime,
+            checker: this.store.listChecker(movie.IMDBId),
           };
         });
       })
@@ -87,9 +93,20 @@ export class ApiService {
             runtime: movie.runtime,
             actors: movie.actors,
             plot: movie.plot,
+            checker: this.store.listChecker(movie.IMDBId),
           };
         });
       })
     );
+  }
+
+  addToList(list: 'watchlist' | 'seenlist', id: string) {
+    const url = this.baseURL + 'user/' + list;
+    return this.http.post(url, { IMDBId: id });
+  }
+
+  removeFromList(list: 'watchlist' | 'seenlist', id: string) {
+    const url = `${this.baseURL}user/${list}/${id}`;
+    return this.http.delete(url);
   }
 }

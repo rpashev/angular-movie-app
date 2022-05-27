@@ -34,6 +34,7 @@ export class DatabaseComponent implements OnInit {
         next: (movies) => {
           this.movies = movies;
           this.loading = false;
+          console.log(movies);
         },
         error: (error) => {
           this.error = error || 'Please try again';

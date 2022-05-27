@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class OmdbService {
   baseUrl = `http://www.omdbapi.com/?apikey=${environment.omdbKey}`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: StoreService) {}
 
   getMovies(query: string): Observable<any> {
     const url = `${this.baseUrl}&s=${query}`;
@@ -28,6 +29,7 @@ export class OmdbService {
             poster,
             title: movie.Title,
             id: movie.imdbID,
+            checker: this.store.listChecker(movie.imdbID),
           };
         });
       })
@@ -60,6 +62,7 @@ export class OmdbService {
           country: movie.Country,
           writer: movie.Writer,
           imdbLink: `https://www.imdb.com/title/${movie.imdbID}`,
+          checker: this.store.listChecker(movie.imdbID),
         };
       })
     );

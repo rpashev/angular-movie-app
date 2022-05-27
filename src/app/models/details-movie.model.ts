@@ -12,4 +12,5 @@ export interface MovieDetails {
   country: string;
   writer: string;
   imdbLink: string;
+  checker: { isInWatchlist: boolean | undefined; isInSeenlist: boolean | undefined };
 }

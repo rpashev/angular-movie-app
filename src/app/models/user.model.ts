@@ -1,5 +1,5 @@
 export interface UserData {
-  image: string | undefined;
+  image?: string | undefined;
   email?: string | undefined;
   seenlist?: string[] | undefined;
   token?: string | undefined;

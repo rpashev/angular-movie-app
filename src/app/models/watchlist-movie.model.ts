@@ -7,4 +7,5 @@ export interface WatchlistMovie {
   runtime: string;
   plot: string;
   actors: string;
+  checker: { isInWatchlist: boolean | undefined; isInSeenlist: boolean | undefined };
 }

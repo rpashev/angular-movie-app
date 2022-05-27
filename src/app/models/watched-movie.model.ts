@@ -5,4 +5,5 @@ export interface WatchedMovie {
   genre: string;
   year: string;
   runtime: string;
+  checker: { isInWatchlist: boolean | undefined; isInSeenlist: boolean | undefined };
 }

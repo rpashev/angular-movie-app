@@ -19,6 +19,13 @@ export class StoreService {
     localStorage.removeItem('user');
   }
 
+  autoLogin() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.user$.next(JSON.parse(user));
+    }
+  }
+
   updateLocalStorage() {
     localStorage.setItem('user', JSON.stringify(this.user$.value));
   }
@@ -28,10 +35,33 @@ export class StoreService {
     this.setUser(data);
   }
 
-  autoLogin() {
-    const user = localStorage.getItem('user');
-    if (user) {
-      this.user$.next(JSON.parse(user));
+  listChecker(id: string) {
+    const watchlist = this.user$.value?.watchlist;
+    const seenlist = this.user$.value?.seenlist;
+    let isInWatchlist = watchlist?.includes(id);
+    let isInSeenlist = seenlist?.includes(id);
+    return { isInSeenlist, isInWatchlist };
+  }
+
+  addToList(list: 'watchlist' | 'seenlist', id: string) {
+    const watchlist = this.user$.value?.watchlist;
+    const seenlist = this.user$.value?.seenlist;
+    if (list === 'watchlist') {
+      watchlist?.unshift(id);
+    } else {
+      seenlist?.unshift(id);
     }
+    this.setUser({ ...this.user$.value, watchlist, seenlist });
+  }
+
+  removeFromList(list: 'watchlist' | 'seenlist', id: string) {
+    let watchlist = this.user$.value?.watchlist;
+    let seenlist = this.user$.value?.seenlist;
+    if (list === 'watchlist') {
+      watchlist = watchlist?.filter((movieId) => movieId !== id);
+    } else {
+      seenlist = seenlist?.filter((movieId) => movieId !== id);
+    }
+    this.setUser({ ...this.user$.value, watchlist, seenlist });
   }
 }

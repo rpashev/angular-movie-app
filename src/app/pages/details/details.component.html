@@ -53,8 +53,36 @@
       {{ movie.country }}
     </p>
     <div class="buttons">
-      <button type="button">Add to watchlist</button>
-      <button type="button">Add to watched</button>
+      <button
+        *ngIf="!movie.checker.isInWatchlist"
+        type="button"
+        (click)="onAddToList('watchlist')"
+      >
+        Add to watchlist
+      </button>
+      <button
+        *ngIf="movie.checker.isInWatchlist"
+        type="button"
+        (click)="onRemoveFromList('watchlist')"
+      >
+        Remove from watchlist
+      </button>
+      <button
+        *ngIf="!movie.checker.isInSeenlist"
+        type="button"
+        (click)="onAddToList('seenlist')"
+      >
+        Add to watched
+      </button>
+
+      <button
+        *ngIf="movie.checker.isInSeenlist"
+        type="button"
+        (click)="onRemoveFromList('seenlist')"
+      >
+        Remove from watched
+      </button>
     </div>
+    <p class="error" *ngIf="errorOperation">{{ errorOperation }}</p>
   </div>
 </div>
