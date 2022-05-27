@@ -1,5 +1,13 @@
 <header class="header">
+  <app-toggle-btn (open)="openMobileNav()"></app-toggle-btn>
   <div class="logo-container"></div>
+  <app-mobile-nav
+    *ngIf="mobileNavOpened"
+    [watchlistAmount]="watchlistAmount"
+    [links]="links"
+    [isLoggedIn]="isLoggedIn"
+    (close)="closeMobileNav()"
+  ></app-mobile-nav>
   <nav class="nav__links">
     <a
       *ngFor="let link of links"

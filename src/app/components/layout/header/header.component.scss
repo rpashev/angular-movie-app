@@ -53,6 +53,8 @@
 
 @media (max-width: 62.5em) {
   .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     .logo-container {
       margin: 0 auto;
       width: 9rem;

@@ -29,6 +29,9 @@ import { WatchlistMovieCardComponent } from './components/movie-cards/watchlist-
 import { WatchedMovieCardComponent } from './components/movie-cards/watched-movie-card/watched-movie-card.component';
 import { OmdbComponent } from './components/database-page/omdb/omdb.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { MobileNavComponent } from './components/layout/mobile-nav/mobile-nav.component';
+import { ToggleBtnComponent } from './components/UI/toggle-btn/toggle-btn.component';
+import { CloseBtnComponent } from './components/UI/close-btn/close-btn.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     WatchedMovieCardComponent,
     OmdbComponent,
     FilterPipe,
+    MobileNavComponent,
+    ToggleBtnComponent,
+    CloseBtnComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

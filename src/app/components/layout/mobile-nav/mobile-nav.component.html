@@ -1,0 +1,14 @@
+<nav class="mobile-nav">
+  <app-close-btn (close)="onClose()"></app-close-btn>
+  <a
+    (click)="onClose()"
+    *ngFor="let link of links"
+    [routerLink]="link.link"
+    class="link"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >{{ link.title }}
+    <app-badge [amount]="watchlistAmount" *ngIf="link.title === 'Watchlist'"></app-badge>
+  </a>
+  <button type="button" *ngIf="isLoggedIn" class="link" (click)="logout()">logout</button>
+</nav>

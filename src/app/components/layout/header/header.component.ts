@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   watchlistAmount: number | undefined;
   imageUrl: string | undefined;
   links: NavLink[];
+  mobileNavOpened: boolean = false;
   subscription: Subscription;
 
   constructor(private store: StoreService, private router: Router) {}
@@ -34,5 +35,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout() {
     this.store.logout();
     this.router.navigate(['login']);
+  }
+
+  openMobileNav() {
+    this.mobileNavOpened = true;
+  }
+
+  closeMobileNav() {
+    this.mobileNavOpened = false;
   }
 }

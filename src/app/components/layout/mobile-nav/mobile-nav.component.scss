@@ -1,0 +1,51 @@
+.mobile-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6rem;
+  gap: 1.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  background: var(--gray-darkest) !important;
+  height: 100vh;
+  width: 100vw;
+
+  .link {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: all 0.25s ease-out;
+    text-transform: uppercase;
+    display: block;
+    backface-visibility: hidden;
+    font-size: 1.8rem;
+  }
+
+  .active {
+    color: var(--color-primary);
+  }
+}
+
+.slide-enter {
+  transform: translateX(-100%);
+}
+
+.slide-enter-active {
+  transform: translateY(0);
+  transition: transform 200ms;
+}
+
+.slide-exit {
+  transform: translateY(0);
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
+  transition: transform 200ms;
+}

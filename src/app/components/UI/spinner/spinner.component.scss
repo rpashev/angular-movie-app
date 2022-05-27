@@ -1,3 +1,7 @@
+:host {
+  display: flex;
+  margin: 50px auto;
+}
 .loader {
   border: 16px solid var(--color-primary);
   border-top: 16px solid var(--gray-darkest);
