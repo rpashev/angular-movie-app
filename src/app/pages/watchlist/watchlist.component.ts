@@ -37,4 +37,8 @@ export class WatchlistComponent implements OnInit {
   saveQuery(str: string) {
     this.query = str;
   }
+
+  onDeleted(id: string) {
+    this.movies = this.movies.filter((movie) => movie.id !== id);
+  }
 }

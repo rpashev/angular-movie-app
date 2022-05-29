@@ -6,6 +6,43 @@
   (click)="navigate($event)"
   (keypress)="navigate($event)"
 >
+  <p class="error" *ngIf="error && notificationIsVisible">{{ error }}</p>
+  <p class="loading" *ngIf="loading">Loading...</p>
+  <p class="success" *ngIf="success && notificationIsVisible">Marked as watched</p>
+  <div class="action-icons">
+    <div
+      class="remove-icon"
+      title="Remove from watchlist"
+      (click)="onRemoveFromWatchlist($event)"
+    ></div>
+    <div
+      class="seenlist-icon-checked"
+      *ngIf="isInSeenlist"
+      title="This movie is marked as watched"
+    ></div>
+    <div
+      *ngIf="!isInSeenlist"
+      class="seenlist-icon"
+      title="Mark as watched"
+      (click)="onAddToSeenlist($event)"
+    ></div>
+  </div>
+
+  <div class="actions-mobile">
+    <button class="remove-button-mobile" (click)="onRemoveFromWatchlist($event)">
+      Remove from watchlist
+    </button>
+    <button
+      class="seenlist-button-mobile"
+      *ngIf="!isInSeenlist"
+      (click)="onAddToSeenlist($event)"
+    >
+      Mark as watched
+    </button>
+    <button *ngIf="isInSeenlist" class="seenlist-button-mobile-checked" disabled>
+      ✓&nbsp;&nbsp; Movie is marked as watched!
+    </button>
+  </div>
   <img [src]="imgLink" alt="" class="image" />
   <div class="movie-info">
     <p class="title">{{ title }}</p>

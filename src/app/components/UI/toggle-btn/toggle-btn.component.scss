@@ -1,5 +1,7 @@
-.toggle-button {
+:host {
   display: none;
+}
+.toggle-button {
   margin-left: 1rem;
   width: 3rem;
   background: transparent;
@@ -41,7 +43,7 @@
 }
 
 @media (max-width: 62.5em) {
-  .toggle-button {
+  :host {
     display: block;
   }
 }
