@@ -5,7 +5,61 @@
   title="View Details"
   role="link"
   tabIndex="0"
+  (mouseenter)="showActions = true"
+  (mouseleave)="showActions = false"
 >
+  <p *ngIf="error && notificationIsVisible" class="error">{{ error }}</p>
+  <p *ngIf="loading" class="loading">Adding...</p>
+  <p *ngIf="success && notificationIsVisible" class="success">The movie was added!</p>
+  <div class="actions" *ngIf="showActions">
+    <div
+      *ngIf="!isInWatchlist"
+      class="watchlist-icon"
+      title="Add to watchlist"
+      appStopPropagation
+      (click)="onAddToList('watchlist')"
+    >
+      <span>+</span>
+    </div>
+    <div
+      *ngIf="isInWatchlist"
+      class="watchlist-icon-checked"
+      title="This movie is in your watchlist"
+      appStopPropagation
+    >
+      ✓
+    </div>
+
+    <div
+      *ngIf="!isInSeenlist"
+      class="seenlist-icon"
+      title="Mark as watched"
+      (click)="onAddToList('seenlist')"
+      appStopPropagation
+    ></div>
+
+    <div
+      *ngIf="isInSeenlist"
+      class="seenlist-icon-checked"
+      title="This movie is marked as watched"
+      appStopPropagation
+    ></div>
+  </div>
+
+  <div class="actions-mobile">
+    <button *ngIf="!isInWatchlist" (click)="onAddToList('watchlist')" appStopPropagation>
+      Add to watchlist
+    </button>
+    <button *ngIf="isInWatchlist" class="btn-checked" appStopPropagation>
+      <span>✓</span>Already in watchlist
+    </button>
+    <button *ngIf="!isInSeenlist" (click)="onAddToList('seenlist')" appStopPropagation>
+      Mark as watched
+    </button>
+    <button class="btn-checked" *ngIf="isInSeenlist; appStopPropagation">
+      <span>✓</span>Already in watched
+    </button>
+  </div>
   <img [src]="imgLink" alt="" class="image" />
   <p class="title">{{ title }}</p>
 </li>

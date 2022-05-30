@@ -40,7 +40,6 @@ export class WatchlistMovieCardComponent implements OnInit {
   }
 
   onAddToSeenlist(event: any) {
-    event.stopPropagation();
     this.error = null;
     this.loading = true;
     this.api.addToList('seenlist', this.id).subscribe({
@@ -63,19 +62,19 @@ export class WatchlistMovieCardComponent implements OnInit {
   }
 
   onRemoveFromWatchlist(event: any) {
-    event.stopPropagation();
     this.error = null;
     this.loading = true;
+    this.success = false;
     this.api.removeFromList('watchlist', this.id).subscribe({
       next: () => {
+        this.loading = false;
         this.store.removeFromList('watchlist', this.id);
         this.onDeleted.emit(this.id);
-        this.loading = false;
       },
       error: (error) => {
-        this.notificationIsVisible = true;
-        this.error = error.error?.message || 'Could not remove from list!';
         this.loading = false;
+        this.error = error.error?.message || 'Could not remove from list!';
+        this.notificationIsVisible = true;
         this.hideNotification();
       },
     });

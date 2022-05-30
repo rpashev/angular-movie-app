@@ -32,6 +32,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { MobileNavComponent } from './components/layout/mobile-nav/mobile-nav.component';
 import { ToggleBtnComponent } from './components/UI/toggle-btn/toggle-btn.component';
 import { CloseBtnComponent } from './components/UI/close-btn/close-btn.component';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { CloseBtnComponent } from './components/UI/close-btn/close-btn.component
     MobileNavComponent,
     ToggleBtnComponent,
     CloseBtnComponent,
+    StopPropagationDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

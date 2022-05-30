@@ -14,6 +14,7 @@
       class="remove-icon"
       title="Remove from watchlist"
       (click)="onRemoveFromWatchlist($event)"
+      appStopPropagation
     ></div>
     <div
       class="seenlist-icon-checked"
@@ -25,17 +26,23 @@
       class="seenlist-icon"
       title="Mark as watched"
       (click)="onAddToSeenlist($event)"
+      appStopPropagation
     ></div>
   </div>
 
   <div class="actions-mobile">
-    <button class="remove-button-mobile" (click)="onRemoveFromWatchlist($event)">
+    <button
+      class="remove-button-mobile"
+      (click)="onRemoveFromWatchlist($event)"
+      appStopPropagation
+    >
       Remove from watchlist
     </button>
     <button
       class="seenlist-button-mobile"
       *ngIf="!isInSeenlist"
       (click)="onAddToSeenlist($event)"
+      appStopPropagation
     >
       Mark as watched
     </button>
