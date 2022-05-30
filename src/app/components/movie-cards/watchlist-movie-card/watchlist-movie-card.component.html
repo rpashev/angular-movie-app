@@ -5,11 +5,15 @@
   tabindex="0"
   (click)="navigate($event)"
   (keypress)="navigate($event)"
+  (mouseenter)="showActions = true"
+  (mouseleave)="showActions = false"
 >
-  <p class="error" *ngIf="error && notificationIsVisible">{{ error }}</p>
+  <p class="error" *ngIf="error && notificationIsVisible" [@fade]>{{ error }}</p>
   <p class="loading" *ngIf="loading">Loading...</p>
-  <p class="success" *ngIf="success && notificationIsVisible">Marked as watched</p>
-  <div class="action-icons">
+  <p class="success" *ngIf="success && notificationIsVisible" [@fade]>
+    Marked as watched
+  </p>
+  <div class="action-icons" *ngIf="showActions" [@fade]>
     <div
       class="remove-icon"
       title="Remove from watchlist"

@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
@@ -7,6 +8,20 @@ import { StoreService } from 'src/app/services/store.service';
   selector: 'app-base-movie-card',
   templateUrl: './base-movie-card.component.html',
   styleUrls: ['./base-movie-card.component.scss'],
+  animations: [
+    trigger('fade', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+        }),
+        animate('0.25s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.25s', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class BaseMovieCardComponent implements OnInit {
   @Input() imgLink: string;
@@ -53,11 +68,11 @@ export class BaseMovieCardComponent implements OnInit {
         this.notificationIsVisible = true;
         this.hideNotification();
       },
-      error: (error) => {
+      error: () => {
         this.loading = false;
-        this.error = error.error?.message || 'Could not add to list!';
+        this.error = 'Could not add to list!';
         this.notificationIsVisible = true;
-        this.hideNotification;
+        this.hideNotification();
       },
     });
   }

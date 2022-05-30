@@ -57,8 +57,7 @@ export class DetailsComponent implements OnInit {
           ? (this.movie.checker.isInWatchlist = true)
           : (this.movie.checker.isInSeenlist = true);
       },
-      error: (error) =>
-        (this.errorOperation = error.error?.message || 'Could not add to list!'),
+      error: () => (this.errorOperation = 'Could not add to list!'),
     });
   }
 
@@ -71,8 +70,7 @@ export class DetailsComponent implements OnInit {
           ? (this.movie.checker.isInWatchlist = false)
           : (this.movie.checker.isInSeenlist = false);
       },
-      error: (error) =>
-        (this.errorOperation = error.error?.message || 'Could not remove from list!'),
+      error: () => (this.errorOperation = 'Could not remove from list!'),
     });
   }
 }

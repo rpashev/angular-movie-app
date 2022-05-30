@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
@@ -7,6 +8,20 @@ import { StoreService } from 'src/app/services/store.service';
   selector: 'app-watchlist-movie-card',
   templateUrl: './watchlist-movie-card.component.html',
   styleUrls: ['./watchlist-movie-card.component.scss'],
+  animations: [
+    trigger('fade', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+        }),
+        animate('0.25s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.25s', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class WatchlistMovieCardComponent implements OnInit {
   @Input() imgLink: string;
@@ -22,6 +37,7 @@ export class WatchlistMovieCardComponent implements OnInit {
   loading = false;
   success = false;
   notificationIsVisible = false;
+  showActions = false;
   @Output() onDeleted = new EventEmitter();
 
   constructor(
@@ -54,7 +70,7 @@ export class WatchlistMovieCardComponent implements OnInit {
       },
       error: (error) => {
         this.notificationIsVisible = true;
-        this.error = error.error?.message || 'Could not add to watched!';
+        this.error = 'Could not add to watched!';
         this.loading = false;
         this.hideNotification();
       },
@@ -71,9 +87,9 @@ export class WatchlistMovieCardComponent implements OnInit {
         this.store.removeFromList('watchlist', this.id);
         this.onDeleted.emit(this.id);
       },
-      error: (error) => {
+      error: () => {
         this.loading = false;
-        this.error = error.error?.message || 'Could not remove from list!';
+        this.error = 'Could not remove from list!';
         this.notificationIsVisible = true;
         this.hideNotification();
       },

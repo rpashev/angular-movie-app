@@ -8,10 +8,12 @@
   (mouseenter)="showActions = true"
   (mouseleave)="showActions = false"
 >
-  <p *ngIf="error && notificationIsVisible" class="error">{{ error }}</p>
+  <p *ngIf="error && notificationIsVisible" class="error" [@fade]>{{ error }}</p>
   <p *ngIf="loading" class="loading">Adding...</p>
-  <p *ngIf="success && notificationIsVisible" class="success">The movie was added!</p>
-  <div class="actions" *ngIf="showActions">
+  <p *ngIf="success && notificationIsVisible" class="success" [@fade]>
+    The movie was added!
+  </p>
+  <div class="actions" *ngIf="showActions" [@fade]>
     <div
       *ngIf="!isInWatchlist"
       class="watchlist-icon"
