@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -8,6 +9,20 @@ import getNavigation, { NavLink } from './links.util';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger('drop', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+        }),
+        animate('0.2s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.2s', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;

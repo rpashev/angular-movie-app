@@ -57,6 +57,7 @@
         *ngIf="!movie.checker.isInWatchlist"
         type="button"
         (click)="onAddToList('watchlist')"
+        class="btn-watchlist"
       >
         Add to watchlist
       </button>
@@ -64,6 +65,7 @@
         *ngIf="movie.checker.isInWatchlist"
         type="button"
         (click)="onRemoveFromList('watchlist')"
+        class="btn-remove"
       >
         Remove from watchlist
       </button>
@@ -71,6 +73,7 @@
         *ngIf="!movie.checker.isInSeenlist"
         type="button"
         (click)="onAddToList('seenlist')"
+        class="btn-seenlist"
       >
         Add to watched
       </button>
@@ -79,6 +82,7 @@
         *ngIf="movie.checker.isInSeenlist"
         type="button"
         (click)="onRemoveFromList('seenlist')"
+        class="btn-remove"
       >
         Remove from watched
       </button>
