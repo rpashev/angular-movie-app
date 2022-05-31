@@ -58,7 +58,7 @@
   }
 
   .button-div {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
     button {
       cursor: pointer;
       font: inherit;
@@ -86,6 +86,7 @@
 
 @media (max-width: 40em) {
   .button-div {
+    margin-top: 1rem;
     button {
       width: 100%;
     }
