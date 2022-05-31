@@ -59,8 +59,7 @@ export class WatchlistMovieCardComponent implements OnInit {
     this.error = null;
     this.loading = true;
     this.api.addToList('seenlist', this.id).subscribe({
-      next: (data) => {
-        console.log(data);
+      next: () => {
         this.store.addToList('seenlist', this.id);
         this.loading = false;
         this.success = true;

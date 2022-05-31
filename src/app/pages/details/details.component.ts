@@ -38,7 +38,6 @@ export class DetailsComponent implements OnInit {
       next: (movie) => {
         this.movie = movie;
         this.loading = false;
-        console.log(movie);
       },
       error: () => {
         this.error = 'Could not load movie';
@@ -50,8 +49,7 @@ export class DetailsComponent implements OnInit {
   onAddToList(list: 'watchlist' | 'seenlist') {
     this.errorOperation = null;
     this.api.addToList(list, this.id).subscribe({
-      next: (data) => {
-        console.log(data);
+      next: () => {
         this.store.addToList(list, this.id);
         list === 'watchlist'
           ? (this.movie.checker.isInWatchlist = true)

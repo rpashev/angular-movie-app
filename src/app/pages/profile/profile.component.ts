@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     this.username = this.store.user$.value?.username;
     this.watchlist = this.store.user$.value?.watchlist?.length;
     this.seenlist = this.store.user$.value?.seenlist?.length;
-    console.log(this.store.user$.value);
   }
 
   imageChangeHandler(event: any) {
