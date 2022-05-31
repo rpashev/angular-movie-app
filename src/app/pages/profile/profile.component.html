@@ -16,7 +16,13 @@
           class="fileinput"
           id="file-upload"
         />
-        <button (click)="uploadAvatar()">Save changes</button>
+        <button
+          (click)="uploadAvatar()"
+          [disabled]="!selectedImage"
+          [ngClass]="{ disabled: selectedImage === undefined }"
+        >
+          Save changes
+        </button>
       </div>
       <p *ngIf="error" class="error">{{ error }}</p>
       <p *ngIf="loading">Saving...</p>

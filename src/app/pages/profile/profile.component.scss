@@ -47,14 +47,21 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 0.6rem 1.25rem;
+      padding: 0.7rem 1.25rem;
       font-weight: 600;
       border-radius: 3px;
       border: none;
       background-color: var(--gray-light);
       transition: all 0.25s ease-out;
+
       &:hover {
         background-color: rgb(211, 210, 210);
+      }
+    }
+    .disabled {
+      cursor: not-allowed;
+      &:hover {
+        background-color: rgb(240, 240, 240);
       }
     }
   }
