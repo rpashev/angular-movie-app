@@ -5,90 +5,91 @@
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
+}
 
-  .form {
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  max-width: 90%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  .passwords {
+    width: 100%;
+  }
+
+  .form-control {
+    width: 100%;
+    border: none;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    width: 20rem;
-    max-width: 90%;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
 
-    .passwords {
+    input {
       width: 100%;
-    }
-
-    .form-control {
-      width: 100%;
+      display: block;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
       border: none;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
+      border-radius: 2px;
+      font-size: 1.15rem;
 
-      input {
-        width: 100%;
-        display: block;
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-        border: none;
-        border-radius: 2px;
-        font-size: 1.15rem;
-
-        &:focus {
-          outline: none;
-          background-color: var(--gray-darker);
-        }
-
-        &.ng-invalid.ng-touched {
-          border: 3px solid var(--color-danger);
-        }
+      &:focus {
+        outline: none;
+        background-color: var(--gray-darker);
       }
 
-      .input-error,
-      .input-error:focus {
+      &.ng-invalid.ng-touched {
         border: 3px solid var(--color-danger);
       }
-
-      .error {
-        margin: 0;
-        width: auto;
-        text-align: left;
-        background-color: var(--color-danger);
-        padding: 4px;
-        border-radius: 3px;
-        font-size: 0.8rem;
-      }
     }
 
-    .http-error {
-      color: red;
-      width: 100%;
+    .input-error,
+    .input-error:focus {
+      border: 3px solid var(--color-danger);
+    }
+
+    .error {
+      margin: 0;
+      width: auto;
+      text-align: left;
+      background-color: var(--color-danger);
+      padding: 4px;
+      border-radius: 3px;
+      font-size: 0.8rem;
     }
   }
-  .button-div {
-    margin-top: 0.6rem;
-    button {
-      cursor: pointer;
-      font: inherit;
-      font-size: 1.1rem;
-      padding: 0.5rem 2rem;
-      // font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: none;
-      border-radius: 3px;
-      background-color: var(--gray-light);
-      transition: all 0.25s ease-out;
-      &:hover {
-        background-color: yellow;
-      }
+
+  .http-error {
+    color: red;
+    width: 100%;
+  }
+}
+
+.button-div {
+  margin-top: 0.6rem;
+  button {
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.1rem;
+    padding: 0.5rem 2rem;
+    // font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--gray-light);
+    transition: all 0.25s ease-out;
+    &:hover {
+      background-color: yellow;
     }
-    .disabled {
-      cursor: not-allowed;
-      &:hover {
-        background-color: rgb(240, 240, 240);
-      }
+  }
+  .disabled {
+    cursor: not-allowed;
+    &:hover {
+      background-color: rgb(240, 240, 240);
     }
   }
 }
