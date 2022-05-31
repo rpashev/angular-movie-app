@@ -85,7 +85,7 @@
       }
     }
     .disabled {
-      cursor: not-allowed !important;
+      cursor: not-allowed;
       &:hover {
         background-color: rgb(240, 240, 240);
       }

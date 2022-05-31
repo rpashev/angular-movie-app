@@ -11,12 +11,6 @@ import getNavigation, { NavLink } from './links.util';
   styleUrls: ['./header.component.scss'],
   animations: [
     trigger('drop', [
-      transition(':enter', [
-        style({
-          opacity: 0,
-        }),
-        animate('0.2s', style({ opacity: 1 })),
-      ]),
       transition(':leave', [
         style({ opacity: 1 }),
         animate('0.2s', style({ opacity: 0 })),

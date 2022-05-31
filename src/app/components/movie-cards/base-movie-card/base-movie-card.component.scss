@@ -140,29 +140,6 @@
 
 //animations with css transition
 
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 0.4s ease-out;
-}
-
-.slide-enter {
-  opacity: 0;
-}
-
-.slide-enter-active {
-  opacity: 0.7;
-  transition: opacity 300ms;
-}
-
-.slide-exit {
-  opacity: 0.7;
-}
-
-.slide-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
-
 @media (hover: none), (max-width: 56.25em) {
   .card {
     margin-bottom: 1.5rem;
