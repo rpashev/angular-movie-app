@@ -10,7 +10,6 @@ The application uses **[OMDB Api](https://www.omdbapi.com/)** as a movie databas
 * [Challenges](#challenges)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
@@ -66,11 +65,6 @@ Re-made in Angular, this app is the third version of an app I made for the [soft
 - view their "Profile Page" 
 - upload an avatar
 - logout
-
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
