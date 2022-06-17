@@ -1,5 +1,6 @@
 .img {
   height: calc(100vh - 6rem);
+  max-height: calc(100vh - 6rem);
   width: 100%;
   background: url("https://res.cloudinary.com/rpashev/image/upload/v1643814818/movie-app/background_ct8pfj.webp")
     center/cover no-repeat;
@@ -7,15 +8,8 @@
   padding-top: 4rem;
 }
 
-@media (max-width: 75em) {
+@media (max-width: 22em) {
   .img {
-    height: 500px;
-  }
-}
-
-@media (max-width: 40em) {
-  .img {
-    background: none;
-    height: auto;
+    padding-top: 3rem;
   }
 }
