@@ -22,7 +22,7 @@ Re-made in Angular, this app is the third version of an app I made for the [soft
 ## Challenges
 - Angular's different way of doing things in comparison with React/Vue was challenging to wrap my head around but extremely rewarding
 - RxJS's learning curve is steep and understanding the different operators and generally how to use observables is a big challenge
-- first time I was using TypeScript so naturally it was a fight with the compiler but I ended up being surprised at how useful TS can be
+- first time I was using TypeScript so naturally it was a fight with the compiler but I ended up being pleasantly surprised at how useful TS can be
 - working with an external api such as [OMDB Api](https://www.omdbapi.com/) was challenging as the API had limitations which I had to consider
 - the combination of front end + external api + my own api made it challenging to come up with a solution that optimizes the data flow of the app
 
@@ -100,5 +100,5 @@ Re-made in Angular, this app is the third version of an app I made for the [soft
 
 
 ## Contact
-Created by me - feel free to contact me!
+Created by rpashev - feel free to [contact me](https://www.rpashev.com/).
 
